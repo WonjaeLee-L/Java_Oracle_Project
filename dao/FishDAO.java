@@ -18,8 +18,18 @@ public class FishDAO {
 	private String driverName = "oracle.jdbc.driver.OracleDriver";
 	private Connection conn = null;
 
-	public FishDAO() {
+	public static FishDAO fishdao = null; // * 싱글톤 기법 >> 자기 자신의 객체 주소 변수, 어디서든 접근(public), 공용변수(static)
+
+	// * 싱글톤 기법 >> 나만 객체를 만들도록 생성자를 private로 설정. 외부에서 객체 만들지 못함
+	private FishDAO() {
 		init();
+	}
+
+	public static FishDAO getInstance() {	// * 싱클톤 기법
+		if (fishdao == null) {
+			fishdao = new FishDAO();	// 현재 객체가 null이면 객체 만들고
+		}
+		return fishdao;	// null 아니면 주소 넘긴다.
 	}
 
 	private void init() { // 드라이버 로드
@@ -64,7 +74,7 @@ public class FishDAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} finally {		// conn 자원 반납
+			} finally { // conn 자원 반납
 				try {
 					if (conn != null)
 						conn.close();
@@ -94,7 +104,7 @@ public class FishDAO {
 				}
 
 			} catch (Exception e) {
-			} finally {		// conn 자원 반납
+			} finally { // conn 자원 반납
 				try {
 					if (conn != null)
 						conn.close();
@@ -114,7 +124,7 @@ public class FishDAO {
 				psmt.setString(1, delId);
 				psmt.executeUpdate();
 			} catch (Exception e) {
-			} finally {		// conn 자원 반납
+			} finally { // conn 자원 반납
 				try {
 					if (conn != null)
 						conn.close();
@@ -134,7 +144,7 @@ public class FishDAO {
 				psmt.setString(2, fdto.getId());
 				psmt.executeUpdate();
 			} catch (Exception e) {
-			} finally {		// conn 자원 반납
+			} finally { // conn 자원 반납
 				try {
 					if (conn != null)
 						conn.close();
@@ -168,7 +178,7 @@ public class FishDAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}  finally {		// conn 자원 반납
+			} finally { // conn 자원 반납
 				try {
 					if (conn != null)
 						conn.close();

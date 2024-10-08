@@ -8,7 +8,7 @@ import dto.FishDTO;
 
 public class FishService {
 	// fishdata 테이블에 데이터를 입력하기 위해서는 fishDAO객체에 의존한다.
-	FishDAO fishdao = new FishDAO();
+	FishDAO fishdao = FishDAO.getInstance();
 
 	public void menu() {
 		Scanner in = new Scanner(System.in);
