@@ -29,7 +29,7 @@ public class FishDTO {
 		this.indate = indate;
 	}
 
-	// DTO 정보 디버깅용 메서드(generate toString())
+	// DTO 정보 디버깅용 메서드(우클릭 >> source >> generate toString())
 	@Override
 	public String toString() {
 		return "FishDTO [id=" + id + ", pwd=" + pwd + ", indate=" + indate + "]";

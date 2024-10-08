@@ -35,7 +35,6 @@ public class FishService {
 			} else if (selNum == 6) {
 				break;
 			}
-
 		}
 	}
 
