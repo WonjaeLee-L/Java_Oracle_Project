@@ -12,7 +12,7 @@ import dto.FishDTO;
 // fishdata table CRUD
 public class FishDAO {
 
-	private String username = "root";
+	private String username = "system";
 	private String password = "11111111";
 	private String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	private String driverName = "oracle.jdbc.driver.OracleDriver";
